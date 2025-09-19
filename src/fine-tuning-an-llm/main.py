@@ -42,6 +42,9 @@ import torch
 from transformers import (AutoModelForSequenceClassification, Trainer,
                           TrainingArguments)
 
+# Get the directory where this script is located
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
 # Disable parallelism warning and MLflow logging
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 os.environ["MLFLOW_TRACKING_URI"] = "disable"
@@ -60,7 +63,7 @@ test_data = test_data.select(range(200))     # Select 200 samples for evaluation
 
 # Set up training arguments for faster training
 training_args = TrainingArguments(
-    output_dir='./results',
+    output_dir=os.path.join(script_dir, 'results'),
     eval_strategy="steps",
     eval_steps=500,
     learning_rate=2e-5,
@@ -90,4 +93,4 @@ trainer.train()
 results = trainer.evaluate()
 
 # Print evaluation results
-print(f"Accuracy: {results['eval_accuracy']}")
+print(f"Accuracy: {results}")
