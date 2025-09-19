@@ -10,4 +10,5 @@ nlpaug
 sacremoses
 protobuf
 nltk
-lora
+peft
+bitsandbytes
