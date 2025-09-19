@@ -6,3 +6,6 @@ transformers
 datasets
 torch
 accelerate
+nlpaug
+sacremoses
+protobuf
