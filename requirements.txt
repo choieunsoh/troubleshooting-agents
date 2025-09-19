@@ -10,3 +10,4 @@ nlpaug
 sacremoses
 protobuf
 nltk
+lora
